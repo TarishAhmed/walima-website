@@ -102,20 +102,13 @@ function EventDetails() {
 
         {/* Wedding Rings 3D */}
         <div className="mt-12 flex justify-center">
-          {!isMobile ? (
+          {(
             <div className="w-64 h-48" aria-hidden="true" style={{ pointerEvents: 'none' }}>
               <Canvas camera={{ position: [0, 0, 3], fov: 50 }}>
                 <Suspense fallback={null}>
                   <WeddingRings />
                 </Suspense>
               </Canvas>
-            </div>
-          ) : (
-            <div aria-hidden="true" style={{ color: 'var(--color-accent)' }} className="opacity-30">
-              <svg width="100" height="60" viewBox="0 0 100 60" fill="none">
-                <circle cx="35" cy="30" r="20" stroke="currentColor" strokeWidth="2" />
-                <circle cx="65" cy="30" r="20" stroke="currentColor" strokeWidth="2" />
-              </svg>
             </div>
           )}
         </div>

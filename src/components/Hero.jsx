@@ -39,7 +39,7 @@ function Hero() {
       )}
 
       {/* Static SVG fallback for mobile */}
-      {isMobile && (
+      {/* {isMobile && (
         <div className="absolute inset-0 z-0 flex items-center justify-center opacity-20" aria-hidden="true">
           <svg viewBox="0 0 200 200" className="w-64 h-64" fill="none">
             <circle cx="90" cy="100" r="60" stroke="var(--color-accent)" strokeWidth="2" />
@@ -50,7 +50,7 @@ function Hero() {
             />
           </svg>
         </div>
-      )}
+      )} */}
 
       {/* Content overlay */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
