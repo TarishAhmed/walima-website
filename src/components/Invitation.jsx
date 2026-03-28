@@ -12,13 +12,12 @@ const lines = [
   { text: 'BB Ahmed Kabeer & Subaida TP', className: 'font-display text-xl md:text-2xl font-semibold', style: { color: 'var(--color-text)' } },
   { text: '— parents of the groom —', className: 'font-body text-sm', style: { color: 'var(--color-muted)' } },
   { text: '', spacer: true },
-  { text: 'K Nasir Ahmed & PM Khadeeja', className: 'font-display text-xl md:text-2xl font-semibold', style: { color: 'var(--color-text)' } },
-  { text: '— parents of the bride —', className: 'font-body text-sm', style: { color: 'var(--color-muted)' } },
-  { text: '', spacer: true },
   { text: 'joyfully invite you to the Walima celebration', className: 'font-body text-base md:text-lg', style: { color: 'var(--color-muted)' } },
-  { text: 'of their beloved children', className: 'font-body text-base md:text-lg', style: { color: 'var(--color-muted)' } },
+  { text: 'of their beloved son', className: 'font-body text-base md:text-lg', style: { color: 'var(--color-muted)' } },
   { text: '', spacer: true },
   { text: 'Tarish Ahmed B & Zujaja K', className: 'font-display italic text-2xl md:text-4xl font-light', style: { color: 'var(--color-text)' } },
+  { text: '', spacer: true },
+  { text: 'Daughter of K Nasir Ahmed & PM Khadeeja', className: 'font-body text-sm md:text-base', style: { color: 'var(--color-muted)' } },
   { text: '', spacer: true },
   { text: '"And among His signs is that He created for you mates from among yourselves,', className: 'font-body italic text-sm md:text-base', style: { color: 'var(--color-accent)' } },
   { text: 'that you may dwell in tranquility with them..."', className: 'font-body italic text-sm md:text-base', style: { color: 'var(--color-accent)' } },
@@ -61,7 +60,7 @@ function Invitation() {
       className="py-20 md:py-32 px-4"
       style={{ backgroundColor: 'var(--color-bg)' }}
     >
-      <div className="max-w-[700px] mx-auto ornate-border rounded-lg p-6 md:p-12 text-center">
+      <div className="max-w-[700px] mx-auto ornate-border rounded-lg p-8 md:p-14 text-center">
         {lines.map((line, i) => {
           if (line.spacer) {
             return <div key={i} className="h-4 md:h-6" />;

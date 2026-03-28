@@ -16,7 +16,7 @@ const cards = [
   {
     icon: '🕛',
     label: 'Time',
-    value: '12:00 PM IST',
+    value: '12:00 PM',
   },
   {
     icon: '📍',
