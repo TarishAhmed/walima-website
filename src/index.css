@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+/* Tailwind v4: define custom font-family utilities via @theme */
+@theme {
+  --font-display: "Cormorant Garamond", serif;
+  --font-arabic: "Amiri", serif;
+  --font-body: "Lato", sans-serif;
+}
+
+:root {
+  --color-primary: #8B0000;
+  --color-primary-light: #C0392B;
+  --color-secondary: #0D0D0D;
+  --color-accent: #C9A84C;
+  --color-bg: #1A0A0A;
+  --color-surface: #2C0A0A;
+  --color-text: #F5F0E8;
+  --color-muted: #A89880;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 4px;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+/* Ornate gold border utility */
+.ornate-border {
+  border: 1px solid var(--color-accent);
+  box-shadow:
+    inset 0 0 20px rgba(201, 168, 76, 0.05),
+    0 0 20px rgba(201, 168, 76, 0.05);
+  position: relative;
+}
+.ornate-border::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Islamic pattern background texture */
+.islamic-pattern-bg {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='0.5' opacity='0.08'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40Z'/%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20Z'/%3E%3Cpath d='M60 0 L80 20 L60 40 L40 20Z'/%3E%3Cpath d='M20 40 L40 60 L20 80 L0 60Z'/%3E%3Cpath d='M60 40 L80 60 L60 80 L40 60Z'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3Ccircle cx='0' cy='0' r='8'/%3E%3Ccircle cx='80' cy='0' r='8'/%3E%3Ccircle cx='0' cy='80' r='8'/%3E%3Ccircle cx='80' cy='80' r='8'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Geometric star divider */
+.star-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+.star-divider::before,
+.star-divider::after {
+  content: '';
+  flex: 1;
+  max-width: 200px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent),
+    transparent
+  );
+}
+
+/* Flip animation for countdown */
+@keyframes flipTop {
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(-90deg); }
+}
+@keyframes flipBottom {
+  0% { transform: rotateX(90deg); }
+  100% { transform: rotateX(0deg); }
+}
+
+.flip-enter {
+  animation: flipTop 0.3s ease-in forwards;
+}
+.flip-exit {
+  animation: flipBottom 0.3s ease-out forwards;
+}
+
+/* Gold shimmer effect for gallery */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.gold-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 168, 76, 0.15) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.gold-shimmer:hover::after {
+  opacity: 1;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Skeleton loading */
+@keyframes skeleton {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-surface) 0px,
+    rgba(201, 168, 76, 0.08) 40px,
+    var(--color-surface) 80px
+  );
+  background-size: 200px 100%;
+  animation: skeleton 1.5s infinite;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Bounce animation for scroll indicator */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+.scroll-bounce {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* Hide number input spinners (replaced by custom +/- buttons) */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
