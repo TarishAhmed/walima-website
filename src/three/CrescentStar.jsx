@@ -6,8 +6,9 @@ function CrescentMoon() {
   const shape = useMemo(() => {
     const s = new THREE.Shape();
     const outerR = 1.2;
-    const innerR = 0.95;
-    const offsetX = 0.35;
+    const innerR = 1.0;      // closer to outerR for thinner horns
+    const offsetX = 0.38;    // shift right
+    const offsetY = -0.18;   // shift up (negative Y = up in Three.js shape space)
 
     // Outer circle
     for (let i = 0; i <= 64; i++) {
@@ -18,12 +19,12 @@ function CrescentMoon() {
       else s.lineTo(x, y);
     }
 
-    // Inner circle (subtracted via hole)
+    // Inner circle — offset diagonally so horns point up and down
     const hole = new THREE.Path();
     for (let i = 0; i <= 64; i++) {
       const angle = (i / 64) * Math.PI * 2;
       const x = Math.cos(angle) * innerR + offsetX;
-      const y = Math.sin(angle) * innerR;
+      const y = Math.sin(angle) * innerR + offsetY;
       if (i === 0) hole.moveTo(x, y);
       else hole.lineTo(x, y);
     }
@@ -31,23 +32,17 @@ function CrescentMoon() {
     return s;
   }, []);
 
-  const geometry = useMemo(() => {
-    return new THREE.ExtrudeGeometry(shape, {
-      depth: 0.15,
-      bevelEnabled: true,
-      bevelThickness: 0.02,
-      bevelSize: 0.02,
-      bevelSegments: 3,
-    });
-  }, [shape]);
+  const geometry = useMemo(() => new THREE.ExtrudeGeometry(shape, {
+    depth: 0.15,
+    bevelEnabled: true,
+    bevelThickness: 0.02,
+    bevelSize: 0.02,
+    bevelSegments: 3,
+  }), [shape]);
 
   return (
     <mesh geometry={geometry} position={[-0.3, 0, 0]}>
-      <meshStandardMaterial
-        color="#C9A84C"
-        roughness={0.3}
-        metalness={0.8}
-      />
+      <meshStandardMaterial color="#C9A84C" roughness={0.3} metalness={0.8} />
     </mesh>
   );
 }

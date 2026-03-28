@@ -32,14 +32,14 @@ function Hero() {
           <Canvas camera={{ position: [0, 0, 5], fov: 60 }}>
             <Suspense fallback={null}>
               <ParticleField count={isMobile ? 500 : 3000} />
-              <CrescentStar />
+              {/* <CrescentStar /> */}
             </Suspense>
           </Canvas>
         </div>
       )}
 
       {/* Static SVG fallback for mobile */}
-      {/* {isMobile && (
+      {/* {(
         <div className="absolute inset-0 z-0 flex items-center justify-center opacity-20" aria-hidden="true">
           <svg viewBox="0 0 200 200" className="w-64 h-64" fill="none">
             <circle cx="90" cy="100" r="60" stroke="var(--color-accent)" strokeWidth="2" />
