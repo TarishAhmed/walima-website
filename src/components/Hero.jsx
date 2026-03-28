@@ -14,7 +14,7 @@ function Hero() {
   useEffect(() => {
     const mobile = window.innerWidth < 768;
     setIsMobile(mobile);
-    if (!mobile) setShowCanvas(true);
+    setShowCanvas(true);
   }, []);
 
   return (
