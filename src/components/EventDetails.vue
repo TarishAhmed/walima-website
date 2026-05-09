@@ -7,7 +7,7 @@ import * as THREE from 'three';
 gsap.registerPlugin(ScrollTrigger);
 
 const cards = [
-  { icon: '📅', label: 'Date', value: 'Saturday, June 21, 2026' },
+  { icon: '🗓️', label: 'Date', value: 'Saturday, June 21, 2026' },
   { icon: '🕛', label: 'Time', value: '12:00 PM' },
   { icon: '📍', label: 'Venue', value: 'Anugraha Hall, Kathrikadav, Kaloor, Ernakulam' },
 ];
